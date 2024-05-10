@@ -102,3 +102,13 @@ window.addEventListener("touchstart",function(e){
         transform: `translate(${0}%, ${0})`
     },{duration: 3000, fill: "forwards"})
 })
+
+
+//Scroll to Top functionality
+// function ScrollToTop(){
+//     document.documentElement.scrollTop = 0;
+// }
+
+//Smooth Scroll
+
+
