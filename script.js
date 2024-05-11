@@ -104,11 +104,48 @@ window.addEventListener("touchstart",function(e){
 })
 
 
-//Scroll to Top functionality
-// function ScrollToTop(){
-//     document.documentElement.scrollTop = 0;
-// }
+function Test(){
+    console.log("test log ");
+}
 
-//Smooth Scroll
+let footerLink = document.getElementById("f-link");
+
+function AnimateFooterLinks(){
+
+    footerLink.animate({
+        transform: `translate(-${0}%, ${100}%)`
+    },{duration: 0, fill: "forwards"})
+    
+    footerLink.animate({
+        transform: `translate(-${0}%, ${0}%)`
+    },{duration: 300, fill: "forwards", easing: cubicBezier})
+}
 
 
+//Mouse Trailer Logic goes here
+const trailer = document.getElementById("trailer");
+
+window.addEventListener("mousemove", function(e){
+    const x = e.clientX-trailer.offsetWidth/2;
+    const y = e.clientY-trailer.offsetHeight/2;
+
+    trailer.animate({
+        left: `${x}px`,
+        top: `${y}px`
+    },{duration: 1200, fill: "forwards"});
+})
+window.addEventListener("touchstart",function(e){
+    trailer.style.opacity = 0;
+})
+
+var scrollbar = Scrollbar.init(document.querySelector('body'));
+
+scrollbar.addListener(function(status) {
+    var scrollY = status.offset.y;
+    console.log(scrollY);
+
+    trailer.animate({
+        transform: `translate(0px, ${scrollY}px)`
+    }, {duration: 800, fill: "forwards"})
+
+});

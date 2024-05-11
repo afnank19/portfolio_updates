@@ -1,13 +1,37 @@
 *{
     scroll-behavior: smooth;
 }
+html{
+    overflow-x: hidden;
+}
 body{
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-    width: 100%;
+
     height: 100vh;
 }
+#scroll-bar-wrapper{
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    height: 100vh;
+}
+
+#trailer{
+    width: 20px;
+    height: 20px;
+    background-color: cadetblue;
+    position: fixed;
+    border-radius: 50%;
+
+    left: 0;
+    top: 0;
+    z-index: 10000;
+    pointer-events: none;
+}
+
+
 .nav-bar{
     display: flex;
     flex-direction: row;
@@ -27,6 +51,7 @@ body{
     display: flex;
     flex-wrap: wrap;
     flex-grow: 1;
+    align-items: center;
 }
 .nav-name{
     flex-grow: 1;
@@ -35,11 +60,82 @@ body{
     font-weight: 100;
 }
 .nav-button{
-    margin: auto;
-    width: 200px;
-    height: 30px;
+    margin: 0rem 1rem;
+    margin-right: 2rem;
+    padding: 0.5rem 0rem;
+    width: 150px;
+    max-height: 50px;
+    font-size: 16px;
+    font-weight: 100;
+    border: none;
+    background-color: black;
+    color: whitesmoke;
+    border-radius: 40px;
+    overflow: hidden;
 }
-.body{
+.Button {
+    font-family: Helvetica;
+    font-weight: 100;
+    margin: 0rem 1rem;
+    margin-right: 2rem;
+    letter-spacing: -0.02em;
+    color: #444638;
+    font-size: 16px;
+    position: relative;
+    border-radius: 80em;
+    background-color: #11190c;
+    border: 0.125rem solid #11190c;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.2s ease, border-color 0.2s ease,
+      color 0.2s ease, fill 0.2s ease, transform 0.2s ease-in-out;
+    cursor: pointer;
+    overflow: hidden;
+    will-change: transform;
+    padding: 8px 20px;
+    display: inline-block;
+  }
+  .Button:hover {
+    background-color: cadetblue;
+    border-color: cadetblue;
+    transition: background-color 0.2s ease, border-color 0.2s ease,
+      color 0.2s ease, fill 0.2s ease, transform 0.2s ease-in-out;
+    will-change: transform;
+    color: #11190c;
+  }
+  .Button:after {
+    content: "";
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: translate(-100%) rotate(10deg);
+    transform-origin: top left;
+    transition: background-color 0.2s ease, border-color 0.2s ease,
+      color 0.2s ease, fill 0.2s ease, transform 0.2s ease-in-out;
+    will-change: transform;
+    z-index: -1;
+    border-radius: 80em;
+    background-color: cadetblue;
+  }
+  .Button:hover:after {
+    transform: translate(0);
+    z-index: 0;
+  }
+  .Button > * {
+    position: relative;
+    z-index: 1;
+  }
+  .Button__inner {
+    color: white;
+  }
+  .Button:hover .Button__inner {
+    color: white;
+  }
+.main-body{
+    overflow-x: hidden;
     display: flex;
     font-family: Helvetica;
 }
@@ -47,7 +143,7 @@ body{
     min-width: 3rem;
     padding: 1rem;
     border-right: 1px solid;
-
+    background-color: white;
     z-index: 1;
 }
 .main-content{
@@ -129,6 +225,7 @@ body{
     margin: 1rem 1rem;
     overflow: hidden;
     border-radius: 10px;
+    pointer-events: none;
 }
 .projects{
     max-width: inherit;
@@ -139,6 +236,7 @@ body{
     gap: 2%;
     transition: cubic-bezier(0,.61,.45,.99) 600ms;
     transform: translate(-0%,0%);
+    pointer-events: none;
 }
 
 .test-img{
@@ -215,7 +313,7 @@ body{
 }
 .ph-heading{
     flex-grow: 1;
-    font-size: clamp(56px, 6vw, 92px);;
+    font-size: clamp(56px, 6vw, 92px);
     font-weight: 100;
     margin: 0;
 }
@@ -262,6 +360,7 @@ body{
 .f-links-wrapper{
     flex-grow: 1;
     margin: 0rem 1rem;
+    overflow: hidden;
 }
 .f-links{
     text-decoration: none;
@@ -309,6 +408,54 @@ body{
     transform: translate(0%, -15%);
 }
 
+.ts-slider-container{
+    display: flex;
+    margin: 1rem;
+    border: solid;
+    border-width: 1px;
+    border-radius: 8px;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+.ts-section{
+    flex: 1;
+    padding: 2rem 2rem;
+    font-size: 14px;
+    font-weight: 100;
+    box-shadow: 0 1px 0 0 black, /* Bottom outline */
+    1px 0 0 0 black; /* Right outline */
+    min-width: 70px;
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+}
+.ts-icon{
+    font-size: 24px;
+    margin-bottom: 1rem;
+}
+.ts-skill{
+    margin: 0;
+    font-family: Helvetica;
+}
+
+.ts-heading{
+    font-size: clamp(66px, 10vw, 96px);
+}
+.dot{
+    width: 6px;
+    height: 6px;
+    background-color: #3d413d;
+    border-radius: 50%;
+}
+
+@keyframes infinity-slide {
+    from{
+        transform: translateX(0%);
+    }
+    to{
+        transform: translate(-100%);
+    }
+}
 
 @keyframes wipe{
     from{
@@ -328,5 +475,9 @@ body{
     }
     .project-date{
         margin-top: 0.5rem;
+    }
+    .ts-section{
+        padding: 1rem 1rem;
+        gap: 3rem;
     }
 }

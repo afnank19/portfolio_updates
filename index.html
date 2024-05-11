@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
-        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,14 +11,18 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body id="scroll-bar">
+   
+
 	<div class="nav-bar">
         <div class="logo-area">S</div>
         <div class="nav-area">
             <h1 class="nav-name">Af.</h1>
-            <button class="nav-button" >Copy Mail?</button>
+            <button class="Button" href="#">
+                <span class="Button__inner">Copy Mail?</span>
+            </button>
         </div>
     </div>
-    <div class="body">
+    <div class="main-body">
         <div class="left-space"></div>
         <div class="main-content">
             <div class="m-name-desc">
@@ -37,7 +41,38 @@
                 <p class="wit">In love with creation</p>
             </div>
             <div class="dot-grid">
-    
+
+            </div>
+            <div class="project-header teck-stack">
+                <h1 class="ph-heading ts-heading">Tech Stack</h1>
+                <p class="description ph-desc ts-desc">Technologies that enable<br>my creations.</p>
+            </div>
+            <div class="ts-slider-container">
+                <div class="ts-section">
+                    <i class="fa-brands fa-react ts-icon"></i>
+                    <p class="ts-skill">ReactJS</p>
+                </div>
+                <div class="ts-section">
+                    <i class="fa-solid fa-code ts-icon"></i>
+                    <p class="ts-skill">ExpressJS</p>
+                </div>
+                <div class="ts-section">
+                    <i class="fa-brands fa-node-js ts-icon"></i>
+                    <p class="ts-skill">NodeJS</p>
+                </div>
+                <div class="ts-section">
+                    <i class="fa-solid fa-database ts-icon"></i>
+                    <p class="ts-skill">MS SQL</p>
+                </div>
+                <div class="ts-section">
+                    <i class="fa-brands fa-figma ts-icon"></i>
+                    <p class="ts-skill">Figma</p>
+                </div>
+                <div class="ts-section">
+                    <i class="fa-brands fa-unity ts-icon"></i>
+                    <p class="ts-skill">Unity</p>
+                </div>
+
             </div>
             <div class="project-header">
                 <h1 class="ph-heading">Selected Work</h1>
@@ -75,17 +110,17 @@
                 </div>
                  <button id="next-btn" onclick="NextCarousel()">Next</button>
             </div>
-            
+
             <div class="footer">
                 <div class="footer-header">
                     <h1 class="f-closure" id="get-in-touch">GET IN TOUCH</h1>
                 </div>
                 <div class="footer-body">
-                    
+
                     <div class="footer-links">
                         <div class="f-links-wrapper">
                             <i class="fa-brands fa-github"></i>
-                            <a class="f-links f-github" href="https://github.com/afnank19">Github</a>
+                            <a class="f-links f-github"href="https://github.com/afnank19">Github</a>
                         </div>
                         <div class="f-links-wrapper">
                             <i class="fa-brands fa-linkedin"></i>
@@ -101,35 +136,36 @@
                         </div>
                     </div>
                     <button class="f-scroll-top" onclick="ScrollToTop()">
-                        <i class="fa-solid fa-arrow-up arrow-icon"></i>              
+                        <i class="fa-solid fa-arrow-up arrow-icon"></i>
                     </button>
                 </div>
-                
+
                 <div class="footer-credits">
                     <p class="f-name">Afnan Khalid</p>
                     <p class="f-folio">Portfolio 2024</p>
                 </div>
             </div>
-            
+
         </div>
     </div>
+    <div id="trailer"></div>
     <script src="smooth-scrollbar.js"></script>
 
     <script>
       var Scrollbar = window.Scrollbar;
 
       const options = {
-        damping: 0.06
+        damping: 0.06,
       }
-    
-      Scrollbar.init(document.querySelector('body'), options);
-      
+
+      Scrollbar.init(document.querySelector('#scroll-bar'), options);
+
       function ScrollToTop(){
         var scrollbar = Scrollbar.init(document.body); // Initialize Smooth Scrollbar on the body element
         scrollbar.scrollTo(0, 0, 1200);
 
         console.log("scrolo");
-        }   
+        }
     </script>
     <script src="script.js"></script>
   </body>
