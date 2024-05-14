@@ -14,9 +14,10 @@
    
 
 	<div class="nav-bar">
-        <div class="logo-area">S</div>
+        <div class="logo-area"><img class="logo" alt="logo" src="three.svg" width="40px" height="40px"></div>
         <div class="nav-area">
-            <h1 class="nav-name">Af.</h1>
+            <!-- <h1 class="nav-name"></h1> -->
+            <p id="localtime"></p>
             <button class="Button" href="#">
                 <span class="Button__inner">Copy Mail?</span>
             </button>
@@ -26,8 +27,9 @@
         <div class="left-space"></div>
         <div class="main-content">
             <div class="m-name-desc">
-                <p class="name">Afnan Khalid<br>Software Developer</p>
-
+                <p class="name">
+                    Afnan Khalid<br><span class="swe">Software Developer</span>
+                </p>
                 <div class="description-container">
                     <p class="description">Specializing in full-stack dev.<br>
                         Problem solving, creating experiences,<br>
@@ -100,15 +102,17 @@
                 </div>
             </div>
             <div class="centering">
-                <button id="prev-btn" onclick="PrevCarousel()">Prev</button>
                 <div class="project-container">
                     <div class="projects" id="project-track">
-                        <img class="test-img" id="image" src="https://images.unsplash.com/photo-1713204641930-9be477a56a8d?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D>"/>
-                        <img class="test-img" id="image" src="https://images.unsplash.com/photo-1713204641930-9be477a56a8d?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D>"/>
-                        <img class="test-img" id="image" src="https://images.unsplash.com/photo-1713204641930-9be477a56a8d?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D>"/>
+                        <img class="test-img" id="image" alt="Project Image" src="https://images.unsplash.com/photo-1714274825559-1a10a7f59935?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"/>
+                        <img class="test-img" id="image" alt="Project Image" src="https://images.unsplash.com/photo-1713204641930-9be477a56a8d?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D>"/>
+                        <img class="test-img" id="image" alt="Project Image" src="https://images.unsplash.com/photo-1713204641930-9be477a56a8d?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D>"/>
+                    </div>
+                    <div class="carousel-btn-container">
+                        <button id="prev-btn" class="Button btn-fix prev" aria-label="Previous Project" onclick="PrevCarousel()"><i class="fa-solid fa-chevron-left"></i></button>
+                        <button id="next-btn" class="Button btn-fix next" aria-label="Next Project" onclick="NextCarousel()"><i class="fa-solid fa-chevron-right"></i></button>
                     </div>
                 </div>
-                 <button id="next-btn" onclick="NextCarousel()">Next</button>
             </div>
 
             <div class="footer">
@@ -120,22 +124,23 @@
                     <div class="footer-links">
                         <div class="f-links-wrapper">
                             <i class="fa-brands fa-github"></i>
-                            <a class="f-links f-github"href="https://github.com/afnank19">Github</a>
+                            <span class="text"><a id="linkanimation" href="https://github.com/afnank19" target="_blank">Github</a> </span>
                         </div>
                         <div class="f-links-wrapper">
                             <i class="fa-brands fa-linkedin"></i>
-                            <a class="f-links f-github" href="">LinkedIn</a>
+                            <span class="text"><a id="linkanimation" href="" target="_blank">LinkedIn</a> </span>
                         </div>
                         <div class="f-links-wrapper">
                             <i class="fa-brands fa-youtube"></i>
-                            <a class="f-links f-github" href="https://www.youtube.com/channel/UCNRjTwH7VCoVSgsqP7W6ImQ">Youtube</a>
+                            <span class="text"><a id="linkanimation" href="https://www.youtube.com/channel/UCNRjTwH7VCoVSgsqP7W6ImQ" target="_blank">YouTube</a> </span>
                         </div>
                         <div class="f-links-wrapper">
                             <i class="fa-brands fa-instagram"></i>
-                            <a class="f-links f-github" href="">Instagram</a>
+                            <span class="text"><a id="linkanimation" href="https://www.instagram.com/afnank194/" target="_blank">Instagram</a> </span>
                         </div>
+
                     </div>
-                    <button class="f-scroll-top" onclick="ScrollToTop()">
+                    <button class="f-scroll-top" aria-label="Scroll to Top" onclick="ScrollToTop()">
                         <i class="fa-solid fa-arrow-up arrow-icon"></i>
                     </button>
                 </div>

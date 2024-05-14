@@ -149,3 +149,30 @@ scrollbar.addListener(function(status) {
     }, {duration: 800, fill: "forwards"})
 
 });
+
+
+//user time
+const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+console.log(timezone);
+function getLocalTime() {
+    var date = new Date();
+    
+    var hours = date.getHours().toString().padStart(2, '0');
+    var minutes = date.getMinutes().toString().padStart(2, '0');
+    
+    var timezoneOffset = date.getTimezoneOffset();
+    var timezoneHours = Math.abs(Math.floor(timezoneOffset / 60)).toString().padStart(2, '0');
+    var timezoneMinutes = Math.abs(timezoneOffset % 60).toString().padStart(2, '0');
+    var timezoneSign = timezoneOffset < 0 ? '+' : '-';
+    
+    var timezone = 'UTC' + timezoneSign + timezoneHours + ':' + timezoneMinutes;
+    
+    return hours + ':' + minutes;
+}
+var localTime = getLocalTime();
+document.getElementById("localtime").innerText = localTime + " | " + timezone;
+setInterval(() => {
+    localTime = getLocalTime();
+    document.getElementById("localtime").innerText = localTime + " | " + timezone;
+}, 30000)
