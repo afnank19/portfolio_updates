@@ -192,12 +192,29 @@ body:hover > #trailer{
     margin: 0;
     margin-left: 1rem;
     margin-right: 1rem;
+
+    animation: opacity-transform 1.5s cubic-bezier(0,.68,.44,1.01);
 }
+
+@keyframes opacity-transform{
+    from{
+        opacity: 0;
+        transform: translateY(5%);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+
 .description-container{
     font-size: larger;
     font-weight: lighter;
     margin-right: 4rem;
     margin-left: 1rem;
+
+    animation: opacity-transform 1.5s cubic-bezier(0,.68,.44,1.01);
+    animation-delay: 100ms;
 }
 .witty-line{
     margin-left: 1rem;
@@ -572,6 +589,12 @@ body:hover > #trailer{
     #localtime{
         margin: 1rem;
         margin-right: 0rem;
+    }
+    .footer-links{
+        margin-left: 1rem;
+    }
+    .f-scroll-top{
+        margin-right: 1rem;
     }
 }
 
