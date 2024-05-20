@@ -1,5 +1,3 @@
-console.log("Hello, World")
-
 const imageTrack = document.getElementById("project-track");
 const projectTech =  document.getElementById("project-tech");
 const projectName =  document.getElementById("project-name");
@@ -8,40 +6,73 @@ const projectDate = document.getElementById("project-date");
 
 var cubicBezier = 'cubic-bezier(0,.19,.39,1)';
 
+const projectDetails = [ {
+        date: "2023", 
+        name: "filmSorted!", 
+        desc: "Track what you watch.",
+        tech: "ReactJS" 
+    } , {
+        date: "2024", 
+        name: "BrainFlow", 
+        desc: "Pomodoro timer app for productivity",
+        tech: "ElectronJS" 
+    } , {
+        date: "2024", 
+        name: "Banished", 
+        desc: "Arcade roguelike dungeon crawler",
+        tech: "Unity" 
+    }]
+
 defaultTranslation = 102;
-translationVal = 0
+translationVal = 0;
+idx = 0;
 function NextCarousel(){
     let direction = 1;
-    translationVal += defaultTranslation;
-
-    imageTrack.style.transform = `translate(-${translationVal}%, ${0}%)`;
-
+    
     //TODO: use an array structure to edit the text based on index number
-    projectTech.textContent = "Unity";
+    idx++;
+    if(idx > projectDetails.length - 1){
+        idx--;
+    } else {
+        translationVal += defaultTranslation;
+        imageTrack.style.transform = `translate(-${translationVal}%, ${0}%)`;
 
-    AnimateProjectTech(direction);
-    setTimeout(50);
-    AnimateProjectName(direction);
-    AnimateProjectDescription(direction);
-    AnimateProjectDate(direction);
+        projectName.textContent = projectDetails[idx].name;
+        projectDesc.textContent = projectDetails[idx].desc;
+        projectTech.textContent = projectDetails[idx].tech;
+        projectDate.textContent = projectDetails[idx].date;
+    
+
+        AnimateProjectTech(direction);
+        setTimeout(50);
+        AnimateProjectName(direction);
+        AnimateProjectDescription(direction);
+        AnimateProjectDate(direction);
+    }
+    
 }
 
 function PrevCarousel(){
     let direction = -1;
     translationVal -= defaultTranslation;
 
-    if(translationVal < 0){
+    idx--;
+
+    if(translationVal < 0 || idx < 0){
         translationVal = 0;
+        idx = 0;
     }else{
+        imageTrack.style.transform = `translate(-${translationVal}%, ${0}%)`;
 
-    imageTrack.style.transform = `translate(-${translationVal}%, ${0}%)`;
+        projectName.textContent = projectDetails[idx].name;
+        projectDesc.textContent = projectDetails[idx].desc;
+        projectTech.textContent = projectDetails[idx].tech;
+        projectDate.textContent = projectDetails[idx].date;
 
-    AnimateProjectTech(direction);
-    AnimateProjectName(direction);
-    AnimateProjectDescription(direction);
-    AnimateProjectDate(direction);
-    
-
+        AnimateProjectTech(direction);
+        AnimateProjectName(direction);
+        AnimateProjectDescription(direction);
+        AnimateProjectDate(direction);
     }
 }
 
@@ -142,7 +173,6 @@ var scrollbar = Scrollbar.init(document.querySelector('body'));
 
 scrollbar.addListener(function(status) {
     var scrollY = status.offset.y;
-    console.log(scrollY);
 
     trailer.animate({
         transform: `translate(0px, ${scrollY}px)`
@@ -154,7 +184,6 @@ scrollbar.addListener(function(status) {
 //user time
 const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
-console.log(timezone);
 function getLocalTime() {
     var date = new Date();
     
@@ -175,4 +204,4 @@ document.getElementById("localtime").innerText = localTime + " | " + timezone;
 setInterval(() => {
     localTime = getLocalTime();
     document.getElementById("localtime").innerText = localTime + " | " + timezone;
-}, 30000)
+}, 1000)
