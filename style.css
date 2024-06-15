@@ -225,6 +225,8 @@ body:hover > #trailer{
 .wit{
     padding-bottom: 1rem;
     border-bottom: 1px solid;
+
+    color: #bcbdb3;
 }
 
 .dot-grid{
